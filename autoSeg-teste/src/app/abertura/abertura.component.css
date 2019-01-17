@@ -1,0 +1,24 @@
+#abertura {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;   
+    margin-top: 6vw 
+}
+#imgAbertura{
+    margin-bottom: 3vw
+}
+#logo{
+    margin-bottom: 3vw
+}
+#btnCriar{
+    width: 23%;
+    margin-bottom: 5px
+}
+#btnEntrar{
+    width: 23%;
+    margin-bottom: 5px
+
+}

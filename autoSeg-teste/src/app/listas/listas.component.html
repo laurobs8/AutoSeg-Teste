@@ -1,3 +1,95 @@
-<p>
-  listas works!
-</p>
+<div id="div" style="position: absolute">
+
+	<nav style="background-color:  #574437;">
+		<img style="padding:5px" src="../../assets/marca-mini123.png" alt="">
+		<div style='display: flex; flex-direction: row-reverse'>
+			<img src="../../assets/avatar.png" alt="">
+			<p style="padding-top: 14px;padding-right: 3px;
+		 color: bisque;">
+				{{usuario}}
+			</p>
+
+
+		</div>
+
+	</nav>
+
+	<div class="container">
+		<div id="top">
+
+			<p style="margin-right: 50%; margin-bottom: 0; font-size: 20px;">Listas</p>
+			<img routerLink="/criar" style="padding: 6px" src="../../assets/botao_adicionar.png" alt="">
+		</div>
+
+
+		<div *ngFor="let tarefa of tarefas" id="listas" class="inner">
+			<div class="topLista">
+				<div style="display: flex;  width: 100%; ">
+					<div style="display: flex; justify-content: flex-start; width: 100%;height: 20px">
+						<img style="height: 15px; margin-top: 6px" id="iconeLista" src="../../assets/icone_lista.png" alt="lista">
+						<p style="margin-left: 5px; margin-top:3px">
+							<label data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+								{{tarefa.tarefa}}
+							</label>
+						</p>
+					</div>
+					<div style="display: flex; justify-content: flex-end; width: 100%; height: 26px; padding-top: 3px; padding-bottom: 4px">
+						<img src="../../assets/icone_editar.png" alt="">
+						<img src="../../assets/icone_deletar_lista.png" alt="">
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="collapse" id="collapseExample">
+				<div class="card card-body">
+					<div style="display: flex">
+						<input [(ngModel)]='dado' name='novaTarefa' style="width: 90%" type="text" class="form-control" placeholder="Adicionar tarefa">
+						<img (click)="add()" style="height: 35px; padding: 7px;" src="../../assets/botao_adicionar.png" alt="">
+					</div>
+
+
+					<div style="padding-left: 10%;padding-right: 5%;padding-top: 3%; display: flex; justify-content: space-between">
+						<div class="accordion-group" style="width: 100%">
+							
+							<div *ngFor='let x of novaTarefa, let i = index' class="accordion-heading" style="display: flex; justify-content: space-between;">
+								<input style="margin-right: 3px; margin-left: -14px" type="checkbox" class="form-check-input">
+
+								<label style="margin-left: 10px;padding-top: 0" style="display: flex; justify-content: flex-start; margin-right: 6px"
+								 class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+									<!-- <p>{{x.tarefa}}</p> -->
+									{{x.tarefa}}
+									{{x.x}}
+
+								</label>
+								<div>
+									<img src="../../assets/icone_deletar_tarefa-subtarefa.png" style="display: flex; justify-content: flex-end; margin-right: 6px"
+									 alt="">
+								</div>
+							</div>
+							<div *ngFor="let sub of tarefas" id="collapseTwo" class="accordion-body collapse">
+								<div style="margin-top: 10px" class="accordion-inner">
+									<hr>
+									<div class="accordion" id="accordion2">
+										<div style="padding:5px; padding-top:0%" class="accordion-group">
+											<div class="accordion-heading">
+												<input style="margin-right: 3px; margin-left: -14px" type="checkbox" class="form-check-input">
+												<label class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseInnerOne">
+													{{sub.subtarefa}}
+												</label>
+											</div>
+											<input type="text" class="form-control" placeholder="Adicionar Subtarefa">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
